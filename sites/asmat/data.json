@@ -1,0 +1,1413 @@
+{
+ "brand": "Əsmət",
+ "title": {
+  "az": "Əsmət. Mətbəx və şərab",
+  "ru": "Əsmət. Кухня и вино",
+  "en": "Əsmət. Kitchen and wine"
+ },
+ "draft": true,
+ "credit": "David Izmailov",
+ "phone": "+994503005254",
+ "phoneDisplay": "+994 50 300 52 54",
+ "address": {
+  "az": "Bakı, Xaqani küçəsi 95",
+  "ru": "Баку, ул. Хагани, 95",
+  "en": "95 Khagani St, Baku"
+ },
+ "mapUrl": "https://www.google.com/maps/search/?api=1&query=Asmat%20Baku&query_place_id=ChIJZaWtZ0h9MEARPzBX0HQfFlk",
+ "instagram": {
+  "handle": "@its.asmat",
+  "url": "https://www.instagram.com/its.asmat/"
+ },
+ "kitchen": {
+  "hours": {
+   "open": "17:00",
+   "close": "01:00"
+  },
+  "sections": [
+   {
+    "id": "cold",
+    "name": {
+     "az": "Soyuq qəlyanaltılar",
+     "ru": "Холодные закуски",
+     "en": "Cold snacks"
+    },
+    "items": [
+     {
+      "id": "c1",
+      "price": 9,
+      "name": {
+       "az": "Trio aperitiv | zeytun, ədviyyatlı badam və kartof çipsi",
+       "ru": "Трио аперитив | оливки, миндаль в специях, картофельные чипсы",
+       "en": "Aperitif Trio | olives, spiced almonds, house-made potato chips"
+      }
+     },
+     {
+      "id": "c2",
+      "price": 10,
+      "name": {
+       "az": "Qara zeytun püresi və nanəli yağ ilə yoğurt | fokaçça ilə təqdim olunur",
+       "ru": "Пюре из чёрных оливок и йогурт с мятным маслом | подаётся с фокаччей",
+       "en": "Black olive purée and yogurt with mint oil | served with focaccia"
+      }
+     },
+     {
+      "id": "c3",
+      "price": 5,
+      "name": {
+       "az": "Çörək səbəti | fokaçça, baget və Borodinski çörəyi",
+       "ru": "Хлебная корзина | фокачча, багет, бородинский хлеб",
+       "en": "Bread basket | focaccia, baguette, Borodinsky rye bread"
+      }
+     },
+     {
+      "id": "c4",
+      "price": 9,
+      "name": {
+       "az": "Danimarka göy pendiri | armud ilə",
+       "ru": "Датский голубой сыр | с грушей",
+       "en": "Danish blue cheese | with pear"
+      }
+     },
+     {
+      "id": "c5",
+      "price": 11,
+      "name": {
+       "az": "Mozzarella pendiri | üzüm ilə",
+       "ru": "Моцарелла | с виноградом",
+       "en": "Mozzarella | with grapes"
+      }
+     },
+     {
+      "id": "c6",
+      "price": 14,
+      "name": {
+       "az": "Parmezan pendiri | xurma ilə",
+       "ru": "Пармезан | с хурмой",
+       "en": "Parmesan | with persimmon"
+      }
+     },
+     {
+      "id": "c7",
+      "price": 18,
+      "name": {
+       "az": "Proşutto | burrata pendiri ilə",
+       "ru": "Прошутто | с бурратой",
+       "en": "Prosciutto | with burrata"
+      }
+     },
+     {
+      "id": "c8",
+      "price": 18,
+      "name": {
+       "az": "Burrata salatı | rəngli pomidor və pesto sousu ilə",
+       "ru": "Салат с бурратой | разноцветными томатами черри и соусом песто",
+       "en": "Burrata salad | with heirloom tomatoes and pesto dressing"
+      }
+     },
+     {
+      "id": "c9",
+      "price": 15,
+      "name": {
+       "az": "Üçlük | straçatella, pesto və sobada bişmiş qırmızı bibər",
+       "ru": "Трио закусок | страчателла, песто, запечённые красные перцы",
+       "en": "Trio | of stracciatella, pesto, and roasted red peppers"
+      }
+     },
+     {
+      "id": "c10",
+      "price": 10,
+      "name": {
+       "az": "Klassik humus",
+       "ru": "Хумус классический",
+       "en": "Classic hummus"
+      }
+     },
+     {
+      "id": "c11",
+      "price": 12,
+      "name": {
+       "az": "Humus | ət tikələri ilə",
+       "ru": "Хумус | с кусочками мяса",
+       "en": "Hummus | with meat pieces"
+      }
+     },
+     {
+      "id": "c12",
+      "price": 19,
+      "name": {
+       "az": "Black Angus-dan karpaçço | parmezan musu ilə",
+       "ru": "Карпаччо из Black Angus | с пармезановым муссом",
+       "en": "Black Angus carpaccio | with Caesar mousse and balsamic glaze"
+      }
+     },
+     {
+      "id": "c13",
+      "price": 12,
+      "name": {
+       "az": "Paştet | giləmeyvə cemi və karamelizə olunmuş soğan ilə",
+       "ru": "Паштет | с ягодным джемом и карамелизированным луком, подается с хлебом бриошь",
+       "en": "Pâté | with berry jam and caramelized onions"
+      }
+     },
+     {
+      "id": "c14",
+      "price": 20,
+      "name": {
+       "az": "Rostbif | tonnato sousu ilə",
+       "ru": "Ростбиф | с соусом тоннато",
+       "en": "Roast beef | with tonnato sauce"
+      }
+     },
+     {
+      "id": "c15",
+      "price": 22,
+      "name": {
+       "az": "Qızılbalıq tartarı | avokado kremi ilə",
+       "ru": "Тартар из лосося | с кремом из авокадо",
+       "en": "Salmon tartare | with creamy avocado mousse"
+      }
+     },
+     {
+      "id": "c16",
+      "price": 9,
+      "name": {
+       "az": "Edamame",
+       "ru": "Эдамаме",
+       "en": "Edamame"
+      }
+     },
+     {
+      "id": "c17",
+      "price": 10,
+      "name": {
+       "az": "Ançouslar | sobada bişmiş bolqar bibəri ilə",
+       "ru": "Анчоусы | с запечённым болгарским перцем",
+       "en": "Anchovies | with bell peppers"
+      }
+     },
+     {
+      "id": "c18",
+      "price": 28,
+      "name": {
+       "az": "Hamon | pomidorlu-sarımsaqlı çörək ilə təqdim olunur",
+       "ru": "Хамон | подается с томатно-чесночным хлебом",
+       "en": "Jamón | with tomato-garlic bread"
+      }
+     },
+     {
+      "id": "c19",
+      "price": 26,
+      "name": {
+       "az": "Ət assortisi",
+       "ru": "Мясная тарелка",
+       "en": "Charcuterie board"
+      }
+     },
+     {
+      "id": "c20",
+      "price": 28,
+      "name": {
+       "az": "Pendir assortisi",
+       "ru": "Сырная тарелка",
+       "en": "Cheese plate"
+      }
+     }
+    ]
+   },
+   {
+    "id": "hot",
+    "name": {
+     "az": "İsti qəlyanaltılar",
+     "ru": "Горячие закуски",
+     "en": "Hot snacks"
+    },
+    "items": [
+     {
+      "id": "h1",
+      "price": 28,
+      "name": {
+       "az": "Fua-qra | moruq və qəhvə sousu ilə",
+       "ru": "Фуа-гра | с малиново-кофейным соусом",
+       "en": "Foie gras | with raspberry and coffee sauce"
+      }
+     },
+     {
+      "id": "h2",
+      "price": 16,
+      "name": {
+       "az": "Kamamber pendiri | pomidor, zeytun və ədviyyatlarla",
+       "ru": "Запеченный камамбер | с томатами, оливками и травами",
+       "en": "Camembert | with tomatoes, olives, and herbs"
+      }
+     },
+     {
+      "id": "h3",
+      "price": 12,
+      "name": {
+       "az": "Xırtıldayan toyuq əti tikələri",
+       "ru": "Куриные кусочки в хрустящей панировке",
+       "en": "Crispy chicken bites"
+      }
+     },
+     {
+      "id": "h4",
+      "price": 18,
+      "name": {
+       "az": "Xırtıldayan mal əti tikələri",
+       "ru": "Говяжьи кусочки в хрустящей панировке",
+       "en": "Crispy beef bites"
+      }
+     },
+     {
+      "id": "h5",
+      "price": 18,
+      "name": {
+       "az": "Popkorn krevetləri",
+       "ru": "Креветки попкорн",
+       "en": "Popcorn shrimp"
+      }
+     },
+     {
+      "id": "h6",
+      "price": 25,
+      "name": {
+       "az": "Krevetlər Siciliya üslubunda",
+       "ru": "Креветки по-сицилийски",
+       "en": "Sicilian-style prawns"
+      }
+     },
+     {
+      "id": "h7",
+      "price": 25,
+      "name": {
+       "az": "Ananas salsası ilə qrildə krevetlər",
+       "ru": "Креветки на гриле | с сальсой из ананаса",
+       "en": "Grilled shrimp | with pineapple salsa"
+      }
+     }
+    ]
+   },
+   {
+    "id": "mains",
+    "name": {
+     "az": "Əsas yeməklər",
+     "ru": "Основные блюда",
+     "en": "Mains"
+    },
+    "items": [
+     {
+      "id": "m1",
+      "price": 22,
+      "name": {
+       "az": "Toyuq şnitseli | parmezan sousu ilə",
+       "ru": "Куриный шницель | с пармезановым соусом",
+       "en": "Chicken schnitzel"
+      }
+     },
+     {
+      "id": "m2",
+      "price": 28,
+      "name": {
+       "az": "Konfi ördək | sobada bişmiş çuğundur, nanəli sous və portağal-çuğundur qarniri ilə",
+       "ru": "Утка конфи | с пюре из запечённой свёклы, мятным соусом и апельсиново-свекольным гарниром",
+       "en": "Duck confit | with beetroot purée, mint sauce, and orange-beetroot garnish"
+      }
+     },
+     {
+      "id": "m3",
+      "price": 30,
+      "name": {
+       "az": "Levrək | zəfəran sousu, yaşıl lobya və az qaynadılmış ispanaq ilə",
+       "ru": "Сибас | с соусом заферано, зеленой фасолью и бланшированным шпинатом",
+       "en": "Sea bass | with saffron sauce, green beans, and blanched spinach"
+      }
+     },
+     {
+      "id": "m4",
+      "price": 48,
+      "name": {
+       "az": "Rossini steyki | fua-qra, qara bibər və burbon sousu ilə",
+       "ru": "Стейк Россини | с фуа-гра и соусом из чёрного перца и бурбона",
+       "en": "Steak Rossini | with foie gras and black pepper–bourbon sauce"
+      }
+     },
+     {
+      "id": "m5",
+      "price": 65,
+      "name": {
+       "az": "Striployn steyk",
+       "ru": "Стейк стриплойн",
+       "en": "Striploin steak"
+      }
+     }
+    ]
+   },
+   {
+    "id": "sides",
+    "name": {
+     "az": "Qarnirlər",
+     "ru": "Гарниры",
+     "en": "Side dishes"
+    },
+    "items": [
+     {
+      "id": "s1",
+      "price": 10,
+      "name": {
+       "az": "Sobada bişmiş yerkökü və turp | qaymaqlı pendirlə",
+       "ru": "Запечённая морковь и редис | на подушке из сливочного сыра",
+       "en": "Roasted carrots and radishes | with cream cheese"
+      }
+     },
+     {
+      "id": "s2",
+      "price": 10,
+      "name": {
+       "az": "Kartof püresi | trüfel və qızardılmış göbələklə",
+       "ru": "Картофельное пюре | с трюфелем и жареными грибами",
+       "en": "Truffle mashed potatoes"
+      }
+     },
+     {
+      "id": "s3",
+      "price": 10,
+      "name": {
+       "az": "Qrildə tərəvəzlər",
+       "ru": "Овощи на гриле",
+       "en": "Grilled vegetables"
+      }
+     }
+    ]
+   },
+   {
+    "id": "pasta",
+    "name": {
+     "az": "Pastalar",
+     "ru": "Паста",
+     "en": "Pasta"
+    },
+    "items": [
+     {
+      "id": "p1",
+      "price": 28,
+      "name": {
+       "az": "Linquini | krevet və limon sousu ilə",
+       "ru": "Лингуини | с креветками и лимонным соусом",
+       "en": "Linguine | with shrimp and lemon sauce"
+      }
+     },
+     {
+      "id": "p2",
+      "price": 25,
+      "name": {
+       "az": "Ravioli | rikotta və trüfel ilə qaymaqlı sousda",
+       "ru": "Равиоли | с рикоттой и трюфелем в сливочном соусе",
+       "en": "Ricotta and truffle ravioli | in cream sauce"
+      }
+     }
+    ]
+   },
+   {
+    "id": "pizza",
+    "name": {
+     "az": "Pizzalar",
+     "ru": "Пицца",
+     "en": "Pizza"
+    },
+    "items": [
+     {
+      "id": "z1",
+      "price": 18,
+      "name": {
+       "az": "Marqarita",
+       "ru": "Маргарита",
+       "en": "Margherita"
+      }
+     },
+     {
+      "id": "z2",
+      "price": 22,
+      "name": {
+       "az": "Pepperoni",
+       "ru": "Пепперони",
+       "en": "Pepperoni"
+      }
+     },
+     {
+      "id": "z3",
+      "price": 23,
+      "name": {
+       "az": "Armud qorqonzola ilə",
+       "ru": "Груша с горгонзолой",
+       "en": "Pear & Gorgonzola"
+      }
+     },
+     {
+      "id": "z4",
+      "price": 25,
+      "name": {
+       "az": "Straçatella ançous ilə",
+       "ru": "Страчателла с анчоусами",
+       "en": "Stracciatella & anchovies"
+      }
+     },
+     {
+      "id": "z5",
+      "price": 25,
+      "name": {
+       "az": "Mortadella | pesto sousu ilə",
+       "ru": "Мортаделла | с соусом песто",
+       "en": "Mortadella | with pesto sauce"
+      }
+     },
+     {
+      "id": "z6",
+      "price": 25,
+      "name": {
+       "az": "Rostbif | qırmızı soğan və tonnato sousu ilə",
+       "ru": "Ростбиф | с красным луком и соусом тоннато",
+       "en": "Roast beef | with red onion and tonnato sauce"
+      }
+     }
+    ]
+   },
+   {
+    "id": "desserts",
+    "name": {
+     "az": "Desertlər",
+     "ru": "Десерты",
+     "en": "Desserts"
+    },
+    "items": [
+     {
+      "id": "d1",
+      "price": 15,
+      "name": {
+       "az": "Tiramisu",
+       "ru": "Тирамису",
+       "en": "Tiramisu"
+      }
+     },
+     {
+      "id": "d2",
+      "price": 15,
+      "name": {
+       "az": "Armud şərabda | anglez kremi ilə",
+       "ru": "Груша в вине | с кремом англез",
+       "en": "Wine-poached pear | with cream"
+      }
+     },
+     {
+      "id": "d3",
+      "price": 12,
+      "name": {
+       "az": "Alma piroqu | dondurma ilə",
+       "ru": "Яблочный пирог | с ванильным мороженым",
+       "en": "Apple pie | with vanilla ice cream"
+      }
+     },
+     {
+      "id": "d4",
+      "price": 12,
+      "name": {
+       "az": "Şokoladlı mus | zeytun yağı və dəniz duzu ilə",
+       "ru": "Шоколадный мусс | с оливковым маслом и морской солью",
+       "en": "Chocolate mousse | with olive oil & sea salt"
+      }
+     },
+     {
+      "id": "d5",
+      "price": 10,
+      "name": {
+       "az": "Portağal çubuqları | tünd şokoladlı",
+       "ru": "Палочки апельсина | в чёрном шоколаде",
+       "en": "Orange sticks | in dark chocolate"
+      }
+     },
+     {
+      "id": "d6",
+      "price": 10,
+      "name": {
+       "az": "Şokolad çipsləri | qoz və püstə ilə",
+       "ru": "Шоколадные чипсы | с орехами и фисташками",
+       "en": "Chocolate chips | with nuts and pistachios"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "bar": {
+  "hours": {
+   "open": "17:00",
+   "close": "01:00"
+  },
+  "sections": [
+   {
+    "id": "rsp",
+    "name": {
+     "az": "Çəhrayı köpüklü",
+     "ru": "Розовое игристое",
+     "en": "Rosé sparkling"
+    },
+    "items": [
+     {
+      "id": "w1",
+      "name": "FA Valley Pet-Nat",
+      "org": "Azerbaijan · Khachmaz",
+      "bottle": 81,
+      "local": true
+     },
+     {
+      "id": "w2",
+      "name": "Chartron et Trébuchet Rosé Crémant",
+      "org": "France · Burgundy",
+      "grp": "Pinot Noir, Chardonnay",
+      "bottle": 120
+     }
+    ]
+   },
+   {
+    "id": "spk",
+    "name": {
+     "az": "Köpüklü",
+     "ru": "Игристое",
+     "en": "Sparkling"
+    },
+    "items": [
+     {
+      "id": "w3",
+      "name": "Chartron et Trébuchet Crémant",
+      "org": "France · Burgundy",
+      "grp": "Chardonnay",
+      "bottle": 120
+     },
+     {
+      "id": "w4",
+      "name": "Taittinger",
+      "org": "France · Champagne",
+      "bottle": 210
+     },
+     {
+      "id": "w5",
+      "name": "Bollinger",
+      "org": "France · Champagne",
+      "bottle": 221
+     },
+     {
+      "id": "w6",
+      "name": "Gosset",
+      "org": "France · Champagne",
+      "bottle": 256
+     },
+     {
+      "id": "w7",
+      "name": "Marqués de Cáceres Cava Brut",
+      "org": "Spain · Rioja",
+      "grp": "Viura, Chardonnay",
+      "bottle": 91
+     },
+     {
+      "id": "w8",
+      "name": "Elem Prosecco",
+      "org": "Italy · Veneto",
+      "grp": "Glera",
+      "bottle": 120
+     },
+     {
+      "id": "w9",
+      "name": "Astoria Clamore",
+      "org": "Italy · Veneto",
+      "grp": "Sauvignon Blanc",
+      "glass": 11,
+      "bottle": 55
+     },
+     {
+      "id": "w10",
+      "name": "Taliano",
+      "org": "Azerbaijan",
+      "bottle": 48,
+      "local": true
+     }
+    ]
+   },
+   {
+    "id": "wht",
+    "name": {
+     "az": "Ağ",
+     "ru": "Белое",
+     "en": "White"
+    },
+    "items": [
+     {
+      "id": "w11",
+      "name": "Fritz Walter Riesling",
+      "org": "Germany · Pfalz",
+      "grp": "Riesling",
+      "glass": 15,
+      "bottle": 79
+     },
+     {
+      "id": "w12",
+      "name": "MarcAndrea",
+      "org": "Azerbaijan · Ismayili",
+      "grp": "Sauvignon Blanc",
+      "glass": 11,
+      "bottle": 55,
+      "local": true
+     },
+     {
+      "id": "w13",
+      "name": "Superflow by Pasqua",
+      "org": "Italy · Veneto",
+      "grp": "Garganega, Sauvignon Blanc",
+      "bottle": 55
+     },
+     {
+      "id": "w14",
+      "name": "Livio Felluga Ribolla Gialla",
+      "org": "Italy · Friuli-Venezia Giulia",
+      "grp": "Ribolla Gialla",
+      "bottle": 120
+     },
+     {
+      "id": "w15",
+      "name": "Romeo & Juliet Pinot Grigio",
+      "org": "Italy · Veneto",
+      "grp": "Pinot Grigio",
+      "bottle": 49
+     },
+     {
+      "id": "w16",
+      "name": "Château Grenouilles Chablis",
+      "org": "France · Burgundy Grand Cru",
+      "grp": "Chardonnay",
+      "bottle": 280
+     },
+     {
+      "id": "w17",
+      "name": "Vintage Tunina",
+      "org": "Italy · Friuli-Venezia Giulia",
+      "grp": "Sauvignon Blanc, Chardonnay, Ribolla Gialla, Malvasia Istriana, Picolit",
+      "bottle": 330
+     },
+     {
+      "id": "w18",
+      "name": "Hey French!",
+      "org": "Italy · Veneto",
+      "grp": "Chardonnay, Pinot Bianco",
+      "bottle": 180
+     },
+     {
+      "id": "w19",
+      "name": "La Scolca Gavi Il Valentino",
+      "org": "Italy · Piedmont",
+      "grp": "Cortese",
+      "bottle": 70
+     },
+     {
+      "id": "w20",
+      "name": "Clos Henri Sauvignon Blanc",
+      "org": "New Zealand",
+      "bottle": 79
+     },
+     {
+      "id": "w21",
+      "name": "Aveta Sauvignon Blanc",
+      "org": "USA · Napa Valley",
+      "bottle": 220
+     },
+     {
+      "id": "w22",
+      "name": "The Six Flowers",
+      "org": "South Africa",
+      "grp": "Chardonnay, Chenin Blanc, Sauvignon Blanc, Viognier, Gewürztraminer, Riesling",
+      "bottle": 96
+     },
+     {
+      "id": "w23",
+      "name": "Escudo Rojo",
+      "org": "Chile · Maipo Valley",
+      "grp": "Cabernet Sauvignon",
+      "bottle": 75
+     },
+     {
+      "id": "w24",
+      "name": "Bòggina B · Petrolo",
+      "org": "Italy · Tuscany, Valdarno",
+      "grp": "Trebbiano",
+      "bottle": 290
+     }
+    ]
+   },
+   {
+    "id": "ros",
+    "name": {
+     "az": "Çəhrayı",
+     "ru": "Розовое",
+     "en": "Rosé"
+    },
+    "items": [
+     {
+      "id": "w25",
+      "name": "FA Valley Amore 2021",
+      "org": "Azerbaijan · Khachmaz",
+      "grp": "Nero d’Avola",
+      "bottle": 89,
+      "local": true
+     },
+     {
+      "id": "w26",
+      "name": "Pietrame",
+      "org": "Italy · d’Abruzzo",
+      "grp": "Montepulciano",
+      "glass": 10,
+      "bottle": 50
+     }
+    ]
+   },
+   {
+    "id": "red",
+    "name": {
+     "az": "Qırmızı",
+     "ru": "Красное",
+     "en": "Red"
+    },
+    "items": [
+     {
+      "id": "w27",
+      "name": "FA Valley Terroir 2 2021",
+      "org": "Azerbaijan · Khachmaz",
+      "grp": "Colorino",
+      "glass": 11,
+      "bottle": 58,
+      "local": true
+     },
+     {
+      "id": "w28",
+      "name": "Fratello FA Valley 2022",
+      "org": "Azerbaijan · Khachmaz",
+      "grp": "Sangiovese",
+      "bottle": 160,
+      "local": true
+     },
+     {
+      "id": "w29",
+      "name": "Fratello FA Valley Nessum Dorma 2022",
+      "org": "Azerbaijan · Khachmaz",
+      "grp": "Nero d’Avola",
+      "bottle": 129,
+      "local": true
+     },
+     {
+      "id": "w30",
+      "name": "Fratello FA Valley 2020",
+      "org": "Azerbaijan · Khachmaz",
+      "grp": "Sangiovese",
+      "bottle": 105,
+      "local": true
+     },
+     {
+      "id": "w31",
+      "name": "Meysari Makhmari",
+      "org": "Azerbaijan · Shamakhi",
+      "grp": "Marselan, Carignan, Grenache Noir",
+      "bottle": 58,
+      "local": true
+     },
+     {
+      "id": "w32",
+      "name": "Clarendelle Bordeaux",
+      "org": "France · Bordeaux",
+      "grp": "Merlot, Cabernet Sauvignon, Cabernet Franc",
+      "bottle": 87
+     },
+     {
+      "id": "w33",
+      "name": "Valmoissine · Louis Latour",
+      "org": "France · Var, Coteaux du Verdon",
+      "grp": "Pinot Noir",
+      "bottle": 90
+     },
+     {
+      "id": "w34",
+      "name": "Argiolas Cannonau di Sardegna",
+      "org": "Italy · Sardegna",
+      "grp": "Cannonau",
+      "bottle": 87
+     },
+     {
+      "id": "w35",
+      "name": "Montmeyrac Grande Selection",
+      "org": "France",
+      "grp": "Cabernet Sauvignon, Cabernet Franc, Merlot",
+      "bottle": 57
+     },
+     {
+      "id": "w36",
+      "name": "Chateau Fonfroide Bordeaux",
+      "org": "Bordeaux",
+      "grp": "Merlot, Cabernet Sauvignon, Cabernet Franc",
+      "bottle": 70
+     },
+     {
+      "id": "w37",
+      "name": "Domaine du Cheval Blanc",
+      "org": "Bordeaux",
+      "grp": "Merlot, Cabernet Franc, Cabernet Sauvignon",
+      "bottle": 60
+     },
+     {
+      "id": "w38",
+      "name": "Chateau Les Acacias",
+      "org": "Bordeaux",
+      "grp": "Cabernet Sauvignon, Cabernet Franc, Merlot",
+      "bottle": 59
+     },
+     {
+      "id": "w39",
+      "name": "Prunotto Barbaresco",
+      "org": "Italy · Piedmont, Barbaresco",
+      "grp": "Nebbiolo",
+      "bottle": 197
+     },
+     {
+      "id": "w40",
+      "name": "Tignanello",
+      "org": "Italy · Tuscany",
+      "grp": "Sangiovese, Cabernet Sauvignon",
+      "bottle": 395
+     },
+     {
+      "id": "w41",
+      "name": "Testamatta · Bibi Graetz",
+      "org": "Italy · Tuscany",
+      "grp": "Sangiovese",
+      "bottle": 420
+     },
+     {
+      "id": "w42",
+      "name": "Valbuena 5° · Vega Sicilia",
+      "org": "Spain · Ribera del Duero",
+      "grp": "Tinto Fino (Tempranillo), Merlot",
+      "bottle": 540
+     },
+     {
+      "id": "w43",
+      "name": "Baffonero · Rocca di Frassinello",
+      "org": "Italy · Tuscany, Maremma",
+      "grp": "100% Merlot",
+      "bottle": 800
+     },
+     {
+      "id": "w44",
+      "name": "Gaja Barbaresco 1999",
+      "org": "Italy · Piedmont, Barbaresco",
+      "grp": "Nebbiolo",
+      "bottle": 999
+     },
+     {
+      "id": "w45",
+      "name": "Sassicaia · Tenuta San Guido",
+      "org": "Bolgheri",
+      "grp": "Cabernet Sauvignon, Cabernet Franc",
+      "vint": [
+       {
+        "y": 2007,
+        "bottle": 1100
+       },
+       {
+        "y": 2008,
+        "bottle": 1100
+       },
+       {
+        "y": 2012,
+        "bottle": 1000
+       }
+      ]
+     },
+     {
+      "id": "w46",
+      "name": "Desire Lush & ZIN Pasqua",
+      "org": "Italy · Puglia",
+      "grp": "Primitivo",
+      "bottle": 55
+     },
+     {
+      "id": "w47",
+      "name": "Passione&Sentimento Rosso",
+      "org": "Italy · Veneto",
+      "grp": "Merlot, Corvina, Croatina",
+      "glass": 12,
+      "bottle": 55
+     },
+     {
+      "id": "w48",
+      "name": "Poggio alla Guardia · Rocca di Frassinello",
+      "org": "Italy · Tuscany",
+      "grp": "Sangiovese, Cabernet Sauvignon, Merlot",
+      "bottle": 55
+     },
+     {
+      "id": "w49",
+      "name": "Masi Fresco di Masi Organic",
+      "org": "Italy · Veneto",
+      "grp": "Garganega, Chardonnay, Pinot Grigio",
+      "bottle": 90
+     },
+     {
+      "id": "w50",
+      "name": "Castellare Chianti Classico",
+      "org": "Italy · Tuscany, Chianti Classico",
+      "grp": "Sangioveto, Canaiolo",
+      "bottle": 98
+     },
+     {
+      "id": "w51",
+      "name": "P+S Prazo de Roriz",
+      "org": "Portugal · Douro",
+      "grp": "Touriga Nacional",
+      "bottle": 97
+     },
+     {
+      "id": "w52",
+      "name": "San Giovanni della Sala",
+      "org": "Italy · Orvieto",
+      "grp": "Grechetto, Procanico, Pinot Bianco, Viognier",
+      "bottle": 99
+     },
+     {
+      "id": "w53",
+      "name": "Le Mortelle Botrosecco",
+      "org": "Italy · Tuscany",
+      "grp": "Cabernet Sauvignon, Cabernet Franc",
+      "bottle": 149
+     },
+     {
+      "id": "w54",
+      "name": "Grandarella · Masi",
+      "org": "Italy · Friuli-Venezia Giulia",
+      "grp": "Refosco",
+      "bottle": 159
+     },
+     {
+      "id": "w55",
+      "name": "Pian delle Vigne Rosso di Montalcino",
+      "org": "Italy · Tuscany, Montalcino",
+      "grp": "Sangiovese",
+      "bottle": 130
+     },
+     {
+      "id": "w56",
+      "name": "IDDA Etna Rosso",
+      "org": "Italy · Sicily, Etna",
+      "grp": "Nerello Mascalese, Nerello Cappuccio",
+      "bottle": 180
+     }
+    ]
+   },
+   {
+    "id": "swt",
+    "name": {
+     "az": "Şirin",
+     "ru": "Сладкое",
+     "en": "Sweet"
+    },
+    "items": [
+     {
+      "id": "w57",
+      "name": "Chateau Guiraud",
+      "org": "France · Bordeaux, Sauternes",
+      "grp": "Sémillon, Sauvignon Blanc",
+      "bottle": 490
+     },
+     {
+      "id": "w58",
+      "name": "Port Graham’s",
+      "org": "Portugal · Douro",
+      "glass": 9
+     }
+    ]
+   },
+   {
+    "id": "na",
+    "name": {
+     "az": "Alkoqolsuz",
+     "ru": "Без алкоголя",
+     "en": "Alcohol-free"
+    },
+    "items": [
+     {
+      "id": "w59",
+      "name": "Henkell Alco Free",
+      "org": "Germany · Pfalz",
+      "glass": 14,
+      "bottle": 69
+     }
+    ],
+    "note": {
+     "az": "Alkoqolsuz qırmızı və ağ şərab da var. Ofisiantdan soruşun.",
+     "ru": "Есть безалкогольное красное и белое. Спросите официанта.",
+     "en": "Alcohol-free red and white are also available. Ask your waiter."
+    }
+   }
+  ]
+ },
+ "pairs": [
+  {
+   "dish": "c1",
+   "drink": "w59",
+   "why": {
+    "az": "Duzlu qəlyanaltı, soyuq köpük. Alkoqolsuz.",
+    "ru": "Солёная закуска и холодные пузырьки. Без алкоголя.",
+    "en": "Salty snacks, cold bubbles. No alcohol."
+   }
+  },
+  {
+   "dish": "c15",
+   "drink": "w11",
+   "why": {
+    "az": "Risling turşuluğu yağlı balığı yüngülləşdirir.",
+    "ru": "Кислотность рислинга облегчает жирную рыбу.",
+    "en": "Riesling’s acidity lifts the rich fish."
+   }
+  },
+  {
+   "dish": "c8",
+   "drink": "w12",
+   "why": {
+    "az": "Pesto və pomidora otlu Sovinyon. İsmayıllıdan.",
+    "ru": "К песто и томатам травянистый совиньон. Из Исмаиллы.",
+    "en": "A grassy Sauvignon for pesto and tomatoes. From Ismayilli."
+   }
+  },
+  {
+   "dish": "h5",
+   "drink": "w9",
+   "why": {
+    "az": "Xırtıldayan krevetə köpüklü şərab.",
+    "ru": "К хрустящим креветкам игристое.",
+    "en": "Sparkling wine for crisp fried shrimp."
+   }
+  },
+  {
+   "dish": "c7",
+   "drink": "w26",
+   "why": {
+    "az": "Duzlu proşutto, yumşaq burrata, quru çəhrayı.",
+    "ru": "Солёное прошутто, мягкая буррата, сухое розовое.",
+    "en": "Salty prosciutto, soft burrata, dry rosé."
+   }
+  },
+  {
+   "dish": "m2",
+   "drink": "w27",
+   "why": {
+    "az": "Ördəyə Xaçmazdan yerli qırmızı.",
+    "ru": "К утке местное красное из Хачмаза.",
+    "en": "A local red from Khachmaz for the duck."
+   }
+  },
+  {
+   "dish": "m5",
+   "drink": "w47",
+   "why": {
+    "az": "Steykə dolğun Veneto qırmızısı.",
+    "ru": "К стейку плотное красное из Венето.",
+    "en": "A full-bodied Veneto red for the steak."
+   }
+  },
+  {
+   "dish": "c4",
+   "drink": "w58",
+   "why": {
+    "az": "Göy pendir və portveyn: duzlu ilə şirin.",
+    "ru": "Голубой сыр и портвейн: солёное со сладким.",
+    "en": "Blue cheese and port: salty meets sweet."
+   }
+  }
+ ],
+ "ui": {
+  "lang": {
+   "az": "Dil",
+   "ru": "Язык",
+   "en": "Language"
+  },
+  "kLabel": {
+   "az": "Mətbəx",
+   "ru": "Кухня",
+   "en": "Kitchen"
+  },
+  "bLabel": {
+   "az": "Şərab",
+   "ru": "Вино",
+   "en": "Wine"
+  },
+  "kTag": {
+   "az": "Qəlyanaltılar, pizza, pasta, steyk.",
+   "ru": "Закуски, пицца, паста, стейки.",
+   "en": "Snacks, pizza, pasta, steaks."
+  },
+  "bTag": {
+   "az": "Şərab kartı: {n} ad. Qədəhlə: {g}.",
+   "ru": "Вин в карте: {n}. Бокалами: {g}.",
+   "en": "{n} wines, {g} of them by the glass."
+  },
+  "kRule": {
+   "az": "Son sifariş {t}-da.",
+   "ru": "Последний заказ в {t}.",
+   "en": "Last orders at {t}."
+  },
+  "bRule": {
+   "az": "Canlı musiqi və yay terrası.",
+   "ru": "Живая музыка и летняя терраса.",
+   "en": "Live music and a summer terrace."
+  },
+  "kCooking": {
+   "az": "Hazırlayırıq, {t}-dək.",
+   "ru": "Готовим до {t}.",
+   "en": "Cooking until {t}."
+  },
+  "kLast": {
+   "az": "Son sifarişlər, {t}-dək.",
+   "ru": "Последние заказы до {t}.",
+   "en": "Last orders until {t}."
+  },
+  "kLate": {
+   "az": "Bağlıdır.",
+   "ru": "Закрыта.",
+   "en": "Closed."
+  },
+  "kLateMore": {
+   "az": "Şərab kartı açıqdır.",
+   "ru": "Винная карта открыта.",
+   "en": "The wine list is still open."
+  },
+  "kClosed": {
+   "az": "Bağlıdır, {t}-dək.",
+   "ru": "Закрыта до {t}.",
+   "en": "Closed until {t}."
+  },
+  "bOpen": {
+   "az": "Açığıq, {t}-dək.",
+   "ru": "Открыты до {t}.",
+   "en": "Open until {t}."
+  },
+  "bOpenLateMore": {
+   "az": "Mətbəx bağlanıb, şərab qalır.",
+   "ru": "Кухня закрылась, вино осталось.",
+   "en": "The kitchen has closed; the wine has not."
+  },
+  "bClosed": {
+   "az": "Bağlıyıq, {t}-dək.",
+   "ru": "Закрыты до {t}.",
+   "en": "Closed until {t}."
+  },
+  "bClosedMore": {
+   "az": "Görüşərik.",
+   "ru": "Увидимся.",
+   "en": "See you then."
+  },
+  "kEnter": {
+   "az": "Mətbəxə keç",
+   "ru": "На кухню",
+   "en": "To the kitchen"
+  },
+  "bEnter": {
+   "az": "Şəraba keç",
+   "ru": "К вину",
+   "en": "To the wine"
+  },
+  "book": {
+   "az": "Masa sifariş et",
+   "ru": "Заказать стол",
+   "en": "Book a table"
+  },
+  "bookHead": {
+   "az": "Masa",
+   "ru": "Стол",
+   "en": "A table"
+  },
+  "bookNote": {
+   "az": "Masa WhatsApp ilə sifariş olunur. Banket 60 nəfərədək.",
+   "ru": "Стол бронируется в WhatsApp. Банкеты до 60 гостей.",
+   "en": "Book a table on WhatsApp. Banquets for up to 60 guests."
+  },
+  "waText": {
+   "az": "Salam! Əsmət-də masa sifariş etmək istəyirəm.",
+   "ru": "Здравствуйте! Хочу заказать стол в Əsmət.",
+   "en": "Hello! I’d like to book a table at Əsmət."
+  },
+  "find": {
+   "az": "Bizi tapmaq",
+   "ru": "Как нас найти",
+   "en": "Finding us"
+  },
+  "hoursLine": {
+   "az": "Hər gün {c}–{d}. Mətbəx {b}-dək.",
+   "ru": "Каждый день {c}–{d}. Кухня до {b}.",
+   "en": "Every day {c}–{d}. Kitchen until {b}."
+  },
+  "hoursLine0": {
+   "az": "Hər gün {c}–{d}.",
+   "ru": "Каждый день {c}–{d}.",
+   "en": "Every day {c}–{d}."
+  },
+  "fee": {
+   "az": "Hesaba 10% xidmət haqqı əlavə olunur.",
+   "ru": "К счёту добавляется сервисный сбор 10%.",
+   "en": "A 10% service fee is added to the bill."
+  },
+  "openMap": {
+   "az": "Xəritədə aç",
+   "ru": "Открыть на карте",
+   "en": "Open the map"
+  },
+  "call": {
+   "az": "Zəng et",
+   "ru": "Позвонить",
+   "en": "Call"
+  },
+  "pairs": {
+   "az": "Cütlüklər",
+   "ru": "Пары",
+   "en": "Pairings"
+  },
+  "pairsL": {
+   "az": "Cüt",
+   "ru": "По",
+   "en": "Pair"
+  },
+  "pairsR": {
+   "az": "lüklər",
+   "ru": "парно",
+   "en": "ings"
+  },
+  "pairsLead": {
+   "az": "Yemək və onun şərabı.",
+   "ru": "Блюдо и его вино.",
+   "en": "A dish and its wine."
+  },
+  "pairsCount": {
+   "az": "Cütlüklər: {n}",
+   "ru": "Пары: {n}",
+   "en": "Pairings: {n}"
+  },
+  "tonight": {
+   "az": "Axşamın cütü",
+   "ru": "Пара вечера",
+   "en": "Tonight’s pair"
+  },
+  "goesWith": {
+   "az": "Bununla yaxşı gedir",
+   "ru": "С этим хорошо идёт",
+   "en": "Goes well with this"
+  },
+  "together": {
+   "az": "Birlikdə {p}",
+   "ru": "Вместе {p}",
+   "en": "Together {p}"
+  },
+  "hasPair": {
+   "az": "cütü var",
+   "ru": "есть пара",
+   "en": "has a pairing"
+  },
+  "backToMenu": {
+   "az": "Menyuya qayıt",
+   "ru": "Назад к меню",
+   "en": "Back to the menu"
+  },
+  "close": {
+   "az": "Bağla",
+   "ru": "Закрыть",
+   "en": "Close"
+  },
+  "rulerK": {
+   "az": "Mətbəx {a}–{b}, son sifariş {l}.",
+   "ru": "Кухня {a}–{b}, последний заказ в {l}.",
+   "en": "Kitchen {a}–{b}, last orders {l}."
+  },
+  "rulerK0": {
+   "az": "Mətbəx {a}–{b}.",
+   "ru": "Кухня {a}–{b}.",
+   "en": "Kitchen {a}–{b}."
+  },
+  "rulerB": {
+   "az": "Açığıq: {a}–{b}.",
+   "ru": "Открыты: {a}–{b}.",
+   "en": "Open {a}–{b}."
+  },
+  "nowAt": {
+   "az": "İndi {t}.",
+   "ru": "Сейчас {t}.",
+   "en": "It is {t} now."
+  },
+  "sections": {
+   "az": "Bölmələr",
+   "ru": "Разделы",
+   "en": "Sections"
+  },
+  "filter": {
+   "az": "Şərab seçimi",
+   "ru": "Отбор вин",
+   "en": "Filter the wines"
+  },
+  "fAll": {
+   "az": "Hamısı",
+   "ru": "Все",
+   "en": "All"
+  },
+  "fGlass": {
+   "az": "Qədəhlə",
+   "ru": "Бокалами",
+   "en": "By the glass"
+  },
+  "fLocal": {
+   "az": "Azərbaycan",
+   "ru": "Азербайджан",
+   "en": "Azerbaijan"
+  },
+  "wGlass": {
+   "az": "qədəh",
+   "ru": "бокал",
+   "en": "glass"
+  },
+  "wBottle": {
+   "az": "şüşə",
+   "ru": "бутылка",
+   "en": "bottle"
+  },
+  "legend": {
+   "az": "Qədəh işarəsi olan qiymət bir qədəh üçündür, qalanları şüşə üçün.",
+   "ru": "Цена со значком бокала указана за бокал, остальные за бутылку.",
+   "en": "A price with the glass mark is per glass; all others are per bottle."
+  },
+  "byGlass": {
+   "az": "qədəhlə {p}",
+   "ru": "бокал {p}",
+   "en": "{p} a glass"
+  },
+  "draft": {
+   "az": "Qaralama. Əsmət üçün hazırlanıb, hələ dərc olunmayıb.",
+   "ru": "Черновик для Əsmət. Сайт ещё не опубликован.",
+   "en": "A draft for Əsmət. Not published yet."
+  },
+  "draftWord": {
+   "az": "qaralama",
+   "ru": "черновик",
+   "en": "draft"
+  },
+  "concept": {
+   "az": "Qaralama. Məlumatlar menyudan və açıq mənbələrdən götürülüb, təsdiq gözləyir.",
+   "ru": "Черновик. Данные взяты из меню и открытых источников и ждут подтверждения.",
+   "en": "Draft. Details come from the menus and public listings and await confirmation."
+  },
+  "credit": {
+   "az": "Dizayn: {who}",
+   "ru": "Дизайн: {who}",
+   "en": "Design: {who}"
+  }
+ }
+}

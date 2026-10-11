@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Черновик: пока владелец не согласовал сайт, поисковикам он закрыт. При запуске строку ниже убрать. -->
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#030304">
+<title>Əsmət (qaralama)</title>
+<!--@fonts-->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--@include art/defs.svg-->
+<h1 class="vh" id="brand"></h1>
+
+<!-- Плашка «черновик». Убирается одной строкой в data.json: "draft": false -->
+<p class="draft" id="draft"></p>
+
+<!--
+  Сцена: две половины стоят рядом в одной ленте, как два печатных меню заведения.
+  Слева кремовый лист кухни, справа лист винной карты цвета хаки.
+  На компьютере видны обе половины, на телефоне лента сдвигается.
+-->
+<div class="stage" id="stage" data-view="cover">
+  <div class="strip" id="strip">
+
+    <!-- Левая половина: кухня -->
+    <section class="half k" id="metbex" aria-labelledby="k-label">
+      <div class="scroll" id="k-scroll">
+        <div class="inner">
+          <header class="top">
+            <h2 class="label" id="k-label"></h2>
+            <p class="status" id="k-status"></p>
+          </header>
+          <div class="hero">
+            <!-- левая часть знака: вместе с правой частью в винной половине читается целое слово -->
+            <p class="word" aria-hidden="true"><svg viewBox="0 0 365.5 359" focusable="false"><use href="#logo" width="951" height="359"/></svg></p>
+            <p class="mark" aria-hidden="true"><svg viewBox="0 0 951 359" focusable="false"><use href="#logo" width="951" height="359"/></svg></p>
+            <div class="intro">
+              <div class="say">
+                <p class="tag" id="k-tag"></p>
+                <p class="status-big" id="k-status-big"></p>
+                <p class="rule" id="k-rule"></p>
+              </div>
+              <div class="do">
+                <button type="button" class="tonight" id="k-tonight" data-side="k"><span class="tn-l" id="k-tonight-l"></span><span class="tn-n" id="k-tonight-n"></span></button>
+                <div class="ruler" id="k-ruler" role="img"></div>
+                <button type="button" class="enter" id="k-enter"></button>
+                <a class="btn" id="k-book" target="_blank" rel="noopener"></a>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="pairs-strip" data-pairs><span data-t="pairs"></span><b data-t="pairs-n"></b></button>
+          <nav class="jump" id="k-jump"></nav>
+          <div class="menu" id="k-menu"></div>
+          <footer class="foot" id="k-foot">
+            <h3 id="k-foot-h"></h3>
+            <p id="k-foot-note"></p>
+            <div class="foot-acts">
+              <a class="btn btn-fill" id="k-wa" target="_blank" rel="noopener"></a>
+              <a class="btn" id="k-call"></a>
+            </div>
+            <p class="tel" id="k-tel"></p>
+            <p class="fee" data-t="fee"></p>
+            <div class="lang-row" role="group"></div>
+            <p class="fine"><span data-t="concept"></span> <span data-t="credit"></span></p>
+          </footer>
+        </div>
+      </div>
+      <button type="button" class="spine" id="k-spine"><span class="spine-l" id="k-spine-l"></span><span class="spine-s" id="k-spine-s"></span></button>
+    </section>
+
+    <!-- Правая половина: вино -->
+    <section class="half b" id="bar" aria-labelledby="b-label">
+      <div class="scroll" id="b-scroll">
+        <div class="inner">
+          <header class="top">
+            <p class="status" id="b-status"></p>
+            <h2 class="label" id="b-label"></h2>
+          </header>
+          <div class="hero">
+            <p class="word" aria-hidden="true"><svg viewBox="365.5 0 585.5 359" focusable="false"><use href="#logo" width="951" height="359"/></svg></p>
+            <p class="mark" aria-hidden="true"><svg viewBox="0 0 951 359" focusable="false"><use href="#logo" width="951" height="359"/></svg></p>
+            <div class="intro">
+              <div class="do">
+                <button type="button" class="tonight" id="b-tonight" data-side="b"><span class="tn-n" id="b-tonight-n"></span></button>
+                <div class="ruler" id="b-ruler" role="img"></div>
+                <button type="button" class="enter" id="b-enter"></button>
+                <button type="button" class="btn" id="b-find"></button>
+              </div>
+              <div class="say">
+                <p class="tag" id="b-tag"></p>
+                <p class="status-big" id="b-status-big"></p>
+                <p class="rule" id="b-rule"></p>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="pairs-strip" data-pairs><span data-t="pairs"></span><b data-t="pairs-n"></b></button>
+          <!-- отбор вин: все, бокалами, местные -->
+          <div class="filter" id="b-filter" role="group"></div>
+          <p class="legend" id="b-legend"></p>
+          <nav class="jump" id="b-jump"></nav>
+          <div class="menu" id="b-menu"></div>
+          <footer class="foot" id="b-foot" tabindex="-1">
+            <h3 id="b-foot-h"></h3>
+            <p class="addr" id="b-addr"></p>
+            <p id="b-hours"></p>
+            <p id="b-rule2"></p>
+            <p class="fee" data-t="fee"></p>
+            <div class="foot-acts">
+              <a class="btn" id="b-map" target="_blank" rel="noopener"></a>
+              <a class="btn" id="b-ig" target="_blank" rel="noopener"></a>
+            </div>
+            <div class="lang-row" role="group"></div>
+            <p class="fine"><span data-t="concept"></span> <span data-t="credit"></span></p>
+          </footer>
+        </div>
+      </div>
+      <button type="button" class="spine" id="b-spine"><span class="spine-l" id="b-spine-l"></span><span class="spine-s" id="b-spine-s"></span></button>
+    </section>
+  </div>
+
+  <!-- Общее для обеих половин висит на шве: пары сверху, язык снизу -->
+  <button type="button" class="tab" id="pairs-open" data-pairs></button>
+  <span class="bead" id="bead" aria-hidden="true"></span>
+  <div class="lang" id="lang" role="group">
+    <button type="button" id="lang-az" data-lang="az" lang="az" aria-pressed="false">az</button>
+    <button type="button" id="lang-ru" data-lang="ru" lang="ru" aria-pressed="false">ru</button>
+    <button type="button" id="lang-en" data-lang="en" lang="en" aria-pressed="false">en</button>
+  </div>
+</div>
+
+<!-- Нить пары: на компьютере тянется через шов от блюда к вину -->
+<svg class="thread" id="thread" aria-hidden="true" focusable="false">
+  <path id="thread-p" pathLength="1"/>
+  <circle id="thread-a" r="4.5"/>
+  <circle id="thread-b" r="4.5"/>
+</svg>
+<p class="why" id="why" aria-hidden="true" hidden></p>
+<p class="vh" id="say" role="status"></p>
+
+<!-- Планка пары: на телефоне показывает вино к блюду (и наоборот) в цветах другой половины -->
+<div class="pairbar" id="pairbar" hidden>
+  <p class="pb-l" id="pb-l"></p>
+  <p class="pb-n" id="pb-n"></p>
+  <p class="pb-w" id="pb-w"></p>
+  <div class="pb-acts">
+    <button type="button" class="pb-go" id="pb-go"></button>
+    <button type="button" class="pb-x" id="pb-x"></button>
+  </div>
+</div>
+
+<!-- Режим «Пары»: строки идут через обе половины -->
+<div class="pairs" id="cutlukler" role="dialog" aria-modal="true" aria-labelledby="pairs-h" hidden>
+  <button type="button" class="tab" id="pairs-close"></button>
+  <h2 class="pairs-h" id="pairs-h"><span class="p-l" id="pairs-l"></span><span class="p-r" id="pairs-r"></span></h2>
+  <p class="pairs-lead"><span id="pairs-lead-k"></span><span id="pairs-lead-b"></span></p>
+  <ol id="pairs-list"></ol>
+</div>
+
+<!--@data-->
+<script src="../../shared/core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

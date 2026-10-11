@@ -1,0 +1,14 @@
+[
+ {
+  "family": "Montserrat",
+  "file": "asmat-montserrat.woff",
+  "weight": "400 800",
+  "style": "normal"
+ },
+ {
+  "family": "Khaki Condensed",
+  "file": "asmat-condensed.woff",
+  "weight": "400 700",
+  "style": "normal"
+ }
+]

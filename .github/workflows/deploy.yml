@@ -1,0 +1,50 @@
+# Сборка и публикация сайта Əsmət на GitHub Pages.
+# Запускается сам после каждой правки в ветке main и вручную кнопкой Run workflow.
+name: Сайт
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Собрать сайт
+        run: |
+          python build.py asmat
+          mkdir -p dist
+          cp out/asmat.html dist/index.html
+          python - <<'PY'
+          import json, pathlib
+          d = json.load(open("sites/asmat/data.json", encoding="utf-8"))
+          rule = "Disallow: /" if d.get("draft", True) else "Allow: /"
+          pathlib.Path("dist/robots.txt").write_text("User-agent: *\n" + rule + "\n", encoding="utf-8")
+          PY
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

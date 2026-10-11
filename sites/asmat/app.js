@@ -51,7 +51,7 @@
   var wide = window.matchMedia("(min-width: 1024px)");
   var view = "cover";        /* телефон: "cover" (обе половины), "k" (кухня), "b" (вино) */
   var pinned = null;         /* выбранная пара */
-  var hover = null;          /* пара под курсором или в фокусе (компьютер) */
+  var hover = null;          /* пара, на которую навели (компьютер): держится, пока не выберут другую */
   var drawn = null;          /* для какой пары нить уже нарисована */
   var wf = "all";            /* отбор вин: "all", "glass", "local" */
   var pairsFocus = null;
@@ -267,7 +267,8 @@
   }
   function itemNode(it, side) {
     var pi = PAIR[it.id], paired = pi != null;
-    var n = el(paired ? "button" : "div", "item" + (paired ? " has-pair" : "") + (paired && pi === pinned ? " lit" : ""));
+    var n = el(paired ? "button" : "div", "item" + (paired ? " has-pair" : "") + (paired && pi === pinned ? " lit" : "") +
+      (paired && pinned == null && pi === hover ? " near" : ""));
     n.id = "i-" + it.id;
     if (paired) { n.type = "button"; n.dataset.id = it.id; }
     if (side === "k") {
@@ -317,6 +318,13 @@
     var ids = pairIds(pinned);
     $("i-" + ids.k).classList.add("lit");
     $("i-" + ids.b).classList.add("lit");
+  }
+  function markNear() {                                  /* пара под курсором: обе строки чуть подсвечены, без сдвига строк */
+    all(".item.near").forEach(function (n) { n.classList.remove("near"); });
+    if (hover == null || pinned != null) return;
+    var ids = pairIds(hover);
+    $("i-" + ids.k).classList.add("near");
+    $("i-" + ids.b).classList.add("near");
   }
   function flash(id) {
     var n = $("i-" + id);
@@ -400,6 +408,7 @@
   function setFilter(f) {
     wf = f;
     if (pinned != null && !passes(ITEM[pairIds(pinned).b].it)) unpin();   /* вино выбранной пары скрыто: пара снимается */
+    if (hover != null && !passes(ITEM[pairIds(hover).b].it)) setHover(null);
     applyFilter();
     syncJump("b");
     redraw();
@@ -545,31 +554,45 @@
   /* ---------- пары ---------- */
   function unpin() {
     pinned = null;
+    hover = null;
     markLit();
+    markNear();
     renderPairBar();
     drawThread();
   }
-  /* Компьютер: вторая колонка прокручивается так, чтобы пара встала на одну линию */
-  function alignPair(i, fromSide) {
+  /* Компьютер: вторая колонка прокручивается так, чтобы пара встала на одну линию.
+     onlyOther: двигается только вторая колонка, первая (под курсором) стоит на месте */
+  function alignPair(i, fromSide, onlyOther) {
     var ids = pairIds(i), smooth = C.reducedMotion ? "auto" : "smooth";
     if (!fromSide) {
       var sk = H.k.scroll;
       sk.scrollTo({ top: Math.max(0, offsetIn("k", $("i-" + ids.k)) - sk.clientHeight * .42), behavior: "auto" });
       fromSide = "k";
     }
-    var to = other(fromSide), sTo = H[to].scroll;
-    var yFrom = $("i-" + ids[fromSide]).getBoundingClientRect().bottom;
+    var to = other(fromSide), sTo = H[to].scroll, bf = band(fromSide);
+    var yFrom = clamp($("i-" + ids[fromSide]).getBoundingClientRect().bottom, bf.top, bf.bot);
     var yTo = $("i-" + ids[to]).getBoundingClientRect().bottom;
     var need = yTo - yFrom;
     var can = clamp(sTo.scrollTop + need, 0, sTo.scrollHeight - sTo.clientHeight) - sTo.scrollTop;
-    sTo.scrollBy({ top: can, behavior: smooth });
+    glide(sTo, can, smooth);
     /* вторая колонка упёрлась в начало или конец: остаток пути проходит первая */
-    if (Math.abs(need - can) > 1) H[fromSide].scroll.scrollBy({ top: can - need, behavior: smooth });
+    if (!onlyOther && Math.abs(need - can) > 1) glide(H[fromSide].scroll, can - need, smooth);
+  }
+  function glide(s, dy, smooth) {                        /* далёкий путь: прыжок почти до места, последние полэкрана плавно */
+    var near = s.clientHeight * .5;
+    if (smooth === "smooth" && Math.abs(dy) > near * 2) {
+      s.scrollTop += dy - (dy > 0 ? near : -near);
+      dy = dy > 0 ? near : -near;
+    }
+    s.scrollBy({ top: dy, behavior: smooth });
   }
   function pin(i, fromSide) {
-    if (pinned === i && fromSide) { unpin(); return; }
+    clearTimeout(candTimer);
+    if (pinned === i && fromSide) { unpin(); hush(); return; }
     showPair(i);
     pinned = i;
+    hover = null;
+    markNear();
     markLit();
     if (isWide()) alignPair(i, fromSide);
     renderPairBar();
@@ -606,37 +629,71 @@
     });
   }
 
-  /* Компьютер: нить идёт под строкой блюда, через шов и под строкой вина */
+  /* Компьютер: нить держится за обе позиции пары, как за якоря.
+     Она идёт под строкой блюда, через шов и под строкой вина и едет вместе с ними, когда половины прокручиваются.
+     Позиция ушла за край своей половины: нить ведёт к ярлыку у края («↓ Port Graham's»), ярлык подвозит её обратно.
+     За краем обе: нить прячется, пара остаётся выбранной и вернётся вместе с позициями. */
+  function band(side) {                                  /* видимая полоса половины: от шапки с разделами до низа окна */
+    var st = stage.getBoundingClientRect().top;
+    return { top: st + stickH(side) + 8, bot: window.innerHeight - 8 };
+  }
+  function seen(r, b) { return r.height > 0 && r.bottom > b.top + 4 && r.top < b.bot - 4; }
+  function onScreen(side, node) { return seen(node.getBoundingClientRect(), band(side)); }
+  var JT_GAP = 34;                                       /* ярлык стоит в стороне от шва, мимо планки языков */
   function drawThread() {
-    var svg = $("thread"), path = $("thread-p"), ca = $("thread-a"), cb = $("thread-b"), why = $("why");
-    var i = hover != null ? hover : pinned;
-    if (!isWide() || i == null || !$("cutlukler").hidden) {
+    var svg = $("thread"), path = $("thread-p"), ca = $("thread-a"), cb = $("thread-b"), why = $("why"), jt = $("jumpto");
+    var i = pinned != null ? pinned : hover;
+    function off(keep) {
       path.setAttribute("d", "");
       ca.style.display = cb.style.display = "none";
       svg.removeAttribute("data-pair");
-      svg.classList.remove("draw");
       why.hidden = true;
+      jt.hidden = true;
+      if (keep) return;                                  /* пара та же, просто за краем: не перерисовывать и не объявлять заново */
+      svg.classList.remove("draw");
       $("say").textContent = "";
       drawn = null;
-      return;
     }
+    if (!isWide() || i == null || !$("cutlukler").hidden) { off(); return; }
     var ids = pairIds(i), ra = $("i-" + ids.k).getBoundingClientRect(), rb = $("i-" + ids.b).getBoundingClientRect();
+    if (!ra.height || !rb.height) { off(); return; }     /* позиция скрыта отбором */
+    var A = band("k"), B = band("b"), seenA = seen(ra, A), seenB = seen(rb, B);
+    if (!seenA && !seenB) { off(drawn === i); return; }
     var seam = H.b.panel.getBoundingClientRect().left + 1;
-    var st = stage.getBoundingClientRect().top;
-    var topA = st + stickH("k") + 8, topB = st + stickH("b") + 8, bot = window.innerHeight - 8;
-    var ya = clamp(ra.bottom, topA, bot), yb = clamp(rb.bottom, topB, bot);
-    var seenA = ra.bottom >= topA && ra.bottom <= bot, seenB = rb.bottom >= topB && rb.bottom <= bot;
-    var r = clamp(Math.abs(yb - ya) * .4, 34, 120);
-    var xa = seenA ? ra.left + 8 : seam - r, xb = seenB ? rb.right - 8 : seam + r;
     function f(v) { return Math.round(v * 10) / 10; }
+    var ya = clamp(ra.bottom, A.top, A.bot), yb = clamp(rb.bottom, B.top, B.bot);
+    var gone = seenA ? (seenB ? null : "b") : "k";       /* какая позиция за краем */
+    if (gone) {
+      var gr = gone === "k" ? ra : rb, gb = gone === "k" ? A : B, up = gr.bottom <= gb.top + 4;
+      var it = ITEM[ids[gone]].it, name = gone === "k" ? nameOf(it) : wineName(it);
+      if (jt.dataset.id !== it.id || jt.dataset.dir !== (up ? "up" : "down")) {
+        jt.dataset.id = it.id;
+        jt.dataset.side = gone;
+        jt.dataset.dir = up ? "up" : "down";
+        $("jumpto-n").textContent = name;
+        jt.setAttribute("aria-label", C.t(U.goesWith) + ": " + name.replace(/\u200B/g, ""));
+      }
+      jt.hidden = false;
+      var w = jt.offsetWidth, h = jt.offsetHeight;
+      var left = gone === "b" ? seam + JT_GAP : seam - JT_GAP - w, top = up ? gb.top + 2 : gb.bot - h - 2;
+      jt.style.left = f(left) + "px";
+      jt.style.top = f(top) + "px";
+      if (gone === "k") ya = top + h / 2; else yb = top + h / 2;
+    } else {
+      jt.hidden = true;
+    }
+    var r = clamp(Math.abs(yb - ya) * .4, 34, 120);
+    var xs = seenA ? seam - r : seam - JT_GAP, xe = seenB ? seam + r : seam + JT_GAP, span = xe - xs;
+    var xa = seenA ? ra.left + 8 : xs, xb = seenB ? rb.right - 8 : xe;
     var d = "M" + f(xa) + " " + f(ya);
-    if (seenA) d += "H" + f(seam - r);
-    d += "C" + f(seam + r * .35) + " " + f(ya) + " " + f(seam - r * .35) + " " + f(yb) + " " + f(seam + r) + " " + f(yb);
+    if (seenA) d += "H" + f(xs);
+    d += "C" + f(xs + span * .675) + " " + f(ya) + " " + f(xe - span * .675) + " " + f(yb) + " " + f(xe) + " " + f(yb);
     if (seenB) d += "H" + f(xb);
     path.setAttribute("d", d);
-    ca.style.display = cb.style.display = "";
-    ca.setAttribute("cx", f(xa)); ca.setAttribute("cy", f(ya)); ca.style.opacity = seenA ? "1" : ".45";
-    cb.setAttribute("cx", f(xb)); cb.setAttribute("cy", f(yb)); cb.style.opacity = seenB ? "1" : ".45";
+    ca.style.display = seenA ? "" : "none";              /* у ярлыка своей точки нет: нить упирается в него */
+    cb.style.display = seenB ? "" : "none";
+    ca.setAttribute("cx", f(xa)); ca.setAttribute("cy", f(ya));
+    cb.setAttribute("cx", f(xb)); cb.setAttribute("cy", f(yb));
     svg.dataset.pair = String(i);                        /* для проверок: где сейчас концы нити */
     svg.dataset.ya = String(f(ya));
     svg.dataset.yb = String(f(yb));
@@ -648,7 +705,7 @@
       why.textContent = C.price(pairSum(i));               /* бусина на шве: цена пары */
       $("say").textContent = C.t(D.pairs[i].why) + " " + C.fill(C.t(U.together), { p: C.price(pairSum(i)) });
     }
-    why.style.top = f(clamp((ya + yb) / 2, Math.max(topA, topB) + 14, bot - 14)) + "px";
+    why.style.top = f(clamp((ya + yb) / 2, Math.max(A.top, B.top) + 14, A.bot - 14)) + "px";
     why.hidden = false;
   }
   var raf = 0;
@@ -671,6 +728,7 @@
     renderPairs();
     renderPairBar();
     drawn = null;
+    $("jumpto").removeAttribute("data-id");               /* ярлык перепишется на новом языке */
     redraw();
   }
 
@@ -698,7 +756,6 @@
     if (f) { setFilter(f.dataset.f); return; }
     var item = t.closest(".item.has-pair");
     if (item) {
-      hover = null;                                        /* на сенсорном экране «наведение» не уходит само */
       pin(PAIR[item.dataset.id], ITEM[item.dataset.id].side);
       return;
     }
@@ -708,6 +765,8 @@
       closePairs(false);
       showPair(i);
       pinned = i;
+      hover = null;
+      markNear();
       markLit();
       if (isWide()) {
         alignPair(i, null);
@@ -717,6 +776,11 @@
         slideTo(side, function () { scrollToItem(id, false); flash(id); $("i-" + id).focus({ preventScroll: true }); });
       }
       return;
+    }
+    /* компьютер: щелчок по пустому месту снимает пару. Полоса прокрутки не в счёт: ею двигают половину */
+    if (isWide() && (pinned != null || hover != null) && stage.contains(t) && t !== H.k.scroll && t !== H.b.scroll &&
+        !t.closest("a, button, input, label, select, textarea")) {
+      if (pinned != null) unpin(); else setHover(null);
     }
   });
   $("k-enter").addEventListener("click", function () { slideTo("k", function () { H.k.label.focus({ preventScroll: true }); }); });
@@ -739,25 +803,89 @@
   });
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
-    if (!$("cutlukler").hidden) closePairs(); else if (pinned != null) unpin();
+    if (!$("cutlukler").hidden) { closePairs(); return; }
+    if (pinned != null) unpin(); else if (hover != null) setHover(null);
+    hush();
   });
 
-  /* наведение и фокус на компьютере: нить показывается, не дожидаясь нажатия */
-  function over(e) {
-    var item = e.target.closest ? e.target.closest(".item.has-pair") : null;
-    var i = item ? PAIR[item.dataset.id] : null;
+  /* ---------- наведение на компьютере ----------
+     Курсор остановился на позиции с парой: пара выбрана и «прилипает». Нить держится за обе позиции,
+     пока курсор не остановится на другой паре, не нажмут Esc или не щёлкнут по пустому месту.
+     Курсор, который просто едет через строки к другой половине, пару не меняет: нужна остановка.
+     Если вторая позиция за краем, её половина сама подъезжает, а половина под курсором стоит на месте.
+     Когда меню едет под неподвижным курсором (колесо, тачпад), пара тоже остаётся прежней. */
+  var candTimer = 0, lastXY = null, restXY = null, REST = 140, JITTER = 6;
+  var quiet = null;                                      /* строка, где пару только что сняли: молчит, пока курсор с неё не уйдёт */
+  function pairedAt(t) { return t && t.closest ? t.closest(".item.has-pair") : null; }
+  function hush() { quiet = lastXY ? pairedAt(document.elementFromPoint(lastXY[0], lastXY[1])) : null; }
+  function setHover(i) {
     if (i === hover) return;
     hover = i;
+    markNear();
     redraw();
   }
-  stage.addEventListener("mouseover", over);
-  stage.addEventListener("focusin", over);
-  stage.addEventListener("mouseleave", function () { if (hover != null) { hover = null; redraw(); } });
-  stage.addEventListener("focusout", function () { if (hover != null) { hover = null; redraw(); } });
+  function choose(item) {
+    if (!isWide() || pinned != null || !$("cutlukler").hidden) return;
+    var id = item.dataset.id, i = PAIR[id], side = ITEM[id].side, mate = $("i-" + pairIds(i)[other(side)]);
+    if (!mate.getBoundingClientRect().height) { setHover(null); return; }   /* вино пары скрыто отбором */
+    if (i === hover) return;
+    setHover(i);
+    if (!onScreen(other(side), mate)) alignPair(i, side, true);
+  }
+  stage.addEventListener("pointermove", function (e) {
+    if (e.pointerType === "touch" || !isWide()) return;          /* пальцем пару выбирают нажатием */
+    var x = e.clientX, y = e.clientY;
+    if (lastXY && Math.abs(x - lastXY[0]) < 1 && Math.abs(y - lastXY[1]) < 1) return;   /* курсор стоит, едет меню */
+    lastXY = [x, y];
+    var under = pairedAt(e.target);
+    if (quiet && under !== quiet) quiet = null;
+    if (restXY && Math.abs(x - restXY[0]) <= JITTER && Math.abs(y - restXY[1]) <= JITTER) return;   /* дрожь руки */
+    restXY = [x, y];
+    clearTimeout(candTimer);
+    candTimer = setTimeout(function () {                  /* курсор стоит REST мс: что под ним, то и выбираем */
+      var now = pairedAt(document.elementFromPoint(x, y));
+      if (now && now === under && now !== quiet) choose(now);   /* под курсором та же строка: меню не уехало */
+    }, REST);
+  });
+  stage.addEventListener("pointerleave", function () { clearTimeout(candTimer); restXY = null; });
+  stage.addEventListener("pointerdown", function () { clearTimeout(candTimer); });
+  stage.addEventListener("focusin", function (e) {        /* с клавиатуры: Tab по позициям выбирает пары */
+    var item = pairedAt(e.target), kb = true;
+    if (!item) return;
+    try { kb = item.matches(":focus-visible"); } catch (x) { /* старый браузер: считаем, что с клавиатуры */ }
+    if (kb) requestAnimationFrame(function () { choose(item); });    /* после того как браузер докрутит к позиции */
+  });
 
-  H.k.scroll.addEventListener("scroll", redraw, { passive: true });
-  H.b.scroll.addEventListener("scroll", redraw, { passive: true });
-  function relayout() { measure(); setView(view); place(); renderPairBar(); redraw(); }
+  /* ярлык у края: подвезти позицию пары обратно */
+  $("jumpto").addEventListener("click", function () {
+    var i = pinned != null ? pinned : hover, side = this.dataset.side;
+    if (i == null || !side) return;
+    var id = pairIds(i)[side];
+    alignPair(i, other(side));
+    flash(id);
+    $("i-" + id).focus({ preventScroll: true });
+  });
+  $("jumpto").addEventListener("wheel", function (e) {     /* колесо над ярлыком крутит половину под ним */
+    var side = this.dataset.side;
+    if (!side) return;
+    e.preventDefault();
+    var s = H[side].scroll;
+    s.scrollBy(0, e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? s.clientHeight : 1));
+  }, { passive: false });
+
+  function scrolled(e) {
+    redraw();
+    if (!lastXY) return;                                 /* меню уехало под курсором: следующее движение мыши выбирает заново */
+    var r = e.currentTarget.getBoundingClientRect();
+    if (lastXY[0] >= r.left && lastXY[0] < r.right) restXY = null;
+  }
+  H.k.scroll.addEventListener("scroll", scrolled, { passive: true });
+  H.b.scroll.addEventListener("scroll", scrolled, { passive: true });
+  function relayout() {
+    measure(); setView(view); place();
+    if (!isWide() && hover != null) { hover = null; markNear(); }      /* на телефоне пары выбирают нажатием */
+    renderPairBar(); redraw();
+  }
   window.addEventListener("resize", relayout);
   if (wide.addEventListener) wide.addEventListener("change", relayout);
   window.addEventListener("hashchange", fromHash);

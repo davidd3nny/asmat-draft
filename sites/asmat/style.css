@@ -210,6 +210,7 @@ button { font: inherit; color: inherit; background: none; border: 0; border-radi
 .k .plug { right: calc(2px - var(--gap)); }
 .b .plug { left: calc(2px - var(--gap)); }
 .k .item.lit { background: rgba(110, 30, 44, .09); }
+.k .item.near { background: rgba(110, 30, 44, .06); }
 .k .item.flash { animation: flash-k 1.1s ease-out; }
 @keyframes flash-k { from { background: rgba(110, 30, 44, .32); } }
 @media (hover: hover) { .k .item.has-pair:hover { background: rgba(110, 30, 44, .06); } .k .item.lit:hover { background: rgba(110, 30, 44, .12); } }
@@ -233,6 +234,7 @@ button { font: inherit; color: inherit; background: none; border: 0; border-radi
 .b .ds { grid-column: 1; margin-top: 2px; font: 400 .92rem/1.28 var(--cond); color: var(--b-soft); }
 .b .pl { grid-column: 1; margin-top: 5px; font: 600 .76rem/1.3 var(--mont); color: var(--wine); }
 .b .item.lit { background: rgba(110, 30, 44, .13); }
+.b .item.near { background: rgba(110, 30, 44, .07); }
 .b .item.flash { animation: flash-b 1.1s ease-out; }
 @keyframes flash-b { from { background: rgba(110, 30, 44, .36); } }
 @media (hover: hover) { .b .item.has-pair:hover { background: rgba(110, 30, 44, .07); } .b .item.lit:hover { background: rgba(110, 30, 44, .17); } }
@@ -305,6 +307,22 @@ button { font: inherit; color: inherit; background: none; border: 0; border-radi
   background: var(--wine); color: var(--cream); font: 700 .78rem/1 var(--mont); white-space: nowrap; pointer-events: none;
 }
 .wy { display: none; }
+/* ярлык у края половины: позиция пары ушла за край, нить ведёт к нему */
+.jumpto {
+  position: fixed; left: 0; top: 0; z-index: 12;
+  display: inline-flex; align-items: center; gap: 9px;
+  max-width: calc(50vw - 34px - var(--pad-out)); padding: 7px 14px 8px 13px; border-radius: 999px;
+  background: var(--wine); color: var(--cream); box-shadow: 0 3px 12px rgba(3, 3, 4, .22);
+  white-space: nowrap;
+}
+.jumpto[data-side="k"] { font: 700 .8rem/1.1 var(--mont); }
+.jumpto[data-side="b"] { font: 500 1.08rem/1.05 var(--cond); }
+.jumpto::before { content: ""; flex: none; width: 7px; height: 7px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; }
+.jumpto[data-dir="up"]::before { transform: translateY(2px) rotate(-45deg); }
+.jumpto[data-dir="down"]::before { transform: translateY(-2px) rotate(135deg); }
+#jumpto-n { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.jumpto:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+@media (hover: hover) { .jumpto:hover { filter: brightness(.86); } }
 
 /* ---------- планка пары (телефон) ---------- */
 .pairbar {
